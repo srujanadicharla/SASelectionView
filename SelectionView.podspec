@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   A slide-up view from bottom of the screen displaying multiple rows with the ability to select and search row. This library is written in Swift.
                    DESC
 
-  spec.homepage     = "https://github.com/srujansimha19/SelectionView"
+  spec.homepage     = "https://github.com/srujanadicharla/SelectionView"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/srujansimha19/SelectionView.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/srujanadicharla/SelectionView.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
