@@ -28,8 +28,6 @@ SASelectionView works on iOS 9 and higher. It depends on the following Apple fra
 You can use [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to install SASelectionView by adding it to your Podfile:
 
 ```swift
-platform :ios, '9.0'
-use_frameworks!
 pod 'SASelectionView'
 ```
 
