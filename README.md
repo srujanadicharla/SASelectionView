@@ -15,14 +15,14 @@ A lightweight single selection view that slides up from bottom of the screen.
 
 *A list showing cities (rows) of respective states (sections)*
 
-## [Requirements](https://github.com/srujanadicharla/SASelectionView#requirements)
+## [](https://github.com/srujanadicharla/SASelectionView#requirements) Requirements
 
 SelectionView works on iOS 9 and higher. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
 
 * Foundation
 * UIKit
 
-## [Installation](https://github.com/srujanadicharla/SASelectionView#installation)
+## [](https://github.com/srujanadicharla/SASelectionView#installation) Installation
 
 ### CocoaPods 
 You can use [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to install SelectionView by adding it to your Podfile:
@@ -38,7 +38,7 @@ pod 'SelectionView'
 * Drag and drop Source folder in your project.
 * Done!
 
-## [Example](https://github.com/srujanadicharla/SASelectionView#example)
+## [](https://github.com/srujanadicharla/SASelectionView#example) Example
 ```swift
 import UIKit
 import SelectionView
@@ -71,5 +71,5 @@ class ViewController: UIViewController {
 
 <img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/screenshot1.png" width="300" height="649"><img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/screenshot2.png" width="300" height="649">
 
-### [License](https://github.com/srujanadicharla/SASelectionView#license)
+### [](https://github.com/srujanadicharla/SASelectionView#license) License
 This code is distributed under the terms and conditions of the [MIT license](https://github.com/srujanadicharla/SelectionView/blob/master/LICENSE).
