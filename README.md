@@ -1,4 +1,4 @@
-# SelectionView
+# SASelectionView
 
 [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
 ![ios](https://camo.githubusercontent.com/8bf40d4e956c67581e5d6d68ea19480e1baf9763/68747470733a2f2f636f636f61706f642d6261646765732e6865726f6b756170702e636f6d2f702f53656c656374696f6e56696577436f6e74726f6c6c65722f62616467652e706e67) ![v1.9.3](https://camo.githubusercontent.com/5174a2a03f8ef273795d61da8cc0c9910b7cf754/68747470733a2f2f636f636f61706f642d6261646765732e6865726f6b756170702e636f6d2f762f53656c656374696f6e56696577436f6e74726f6c6c65722f62616467652e706e67)
@@ -15,14 +15,14 @@ A lightweight single selection view that slides up from bottom of the screen.
 
 *A list showing cities (rows) of respective states (sections)*
 
-## [Requirements](https://github.com/srujanadicharla/SelectionView#requirements)
+## [Requirements](https://github.com/srujanadicharla/SASelectionView#requirements)
 
 SelectionView works on iOS 9 and higher. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
 
 * Foundation
 * UIKit
 
-## [Installation](https://github.com/srujanadicharla/SelectionView#installation)
+## [Installation](https://github.com/srujanadicharla/SASelectionView#installation)
 
 ### CocoaPods 
 You can use [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to install SelectionView by adding it to your Podfile:
@@ -38,7 +38,7 @@ pod 'SelectionView'
 * Drag and drop Source folder in your project.
 * Done!
 
-## [Example](https://github.com/srujanadicharla/SelectionView#example)
+## [Example](https://github.com/srujanadicharla/SASelectionView#example)
 ```swift
 import UIKit
 import SelectionView
@@ -71,5 +71,5 @@ class ViewController: UIViewController {
 
 <img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/screenshot1.png" width="300" height="649"><img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/screenshot2.png" width="300" height="649">
 
-### [License](https://github.com/srujanadicharla/SelectionView#license)
+### [License](https://github.com/srujanadicharla/SASelectionView#license)
 This code is distributed under the terms and conditions of the [MIT license](https://github.com/srujanadicharla/SelectionView/blob/master/LICENSE).
