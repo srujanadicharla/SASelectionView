@@ -12,7 +12,8 @@ public class SectionItem {
     public var title: String?
     public var options: [String]
     public var disabledIndices: [Int:[Int]]
-    var index: Int
+    
+    internal var index: Int
     
     public init(title: String?, options: [String], index: Int = 0, disabledIndices: [Int:[Int]] = [:]) {
         self.title = title

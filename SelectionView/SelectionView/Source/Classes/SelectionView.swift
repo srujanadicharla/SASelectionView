@@ -43,7 +43,9 @@ open class SelectionView: BaseView {
         }
     }
 
-    public class func show(title: String?, sections: [SectionItem] = [], showSearchBar: Bool = false, emptySearchRowTitle: String? = nil, dismisshandler: (() -> ())? = nil, emptyRowHandler: ((_ searchText: String) -> ())? = nil, selectedOption: @escaping (( _ section : Int, _ row: Int, _ value: String) -> ())) {
+    // Present selection view
+    public class func show(title: String?, sections: [SectionItem] = [], showSearchBar: Bool = false, emptySearchRowTitle: String? = nil, dismisshandler: (() -> ())? = nil, emptyRowHandler: ((_ searchText: String) -> ())? = nil, selectedOption: @escaping (( _ section : Int, _ row: Int, _ value: String) -> ()))
+    {
         if let keyWindow = UIApplication.shared.keyWindow {
             let nibViews = UINib(nibName: "SelectionView", bundle: Bundle.frameworkBundle).instantiate(withOwner: nil, options: nil)
             if let nibView: SelectionView = nibViews.first as? SelectionView {
@@ -57,6 +59,7 @@ open class SelectionView: BaseView {
         }
     }
     
+    // Hide selection view
     public class func hide() {
         DispatchQueue.main.async {
             if let keyWindow = UIApplication.shared.keyWindow {
@@ -72,62 +75,25 @@ open class SelectionView: BaseView {
     
     internal func configure(title: String?, sections: [SectionItem], showSearchBar: Bool, emptySearchRowTitle: String? = nil, dismisshandler: (() -> ())? = nil, emptyRowHandler: ((_ searchText: String) -> ())? = nil, selectedOption: @escaping (( _ section : Int, _ row: Int, _ value: String) -> ()))
     {
-        self.filterTitleLabel.text = title?.uppercased()
+        self.filterTitleLabel.text = title
         self.selectedOption = selectedOption
-        
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = 35
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.sectionFooterHeight = UITableView.automaticDimension
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tableView.separatorColor = UIColor.lightGray
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        tableView.reloadData()
-        var totalHeight: CGFloat = 160
-        for i in 0..<sections.count {
-            sections[i].index = i
-            totalHeight += CGFloat(sections[i].options.count * 40)
-            if sections[i].title != nil {
-                totalHeight += 40
-            }
-        }
+        filterData = sections
         
         if showSearchBar {
             self.showSearchBar = showSearchBar
         }
         
-    //        totalHeight += (showSearchBar ? 160 : 100)
-        let totalHeightMultiplier = ((UIScreen.main.bounds.height - totalHeight) / UIScreen.main.bounds.height)
-        if totalHeightMultiplier <= 0.25 {
-            constantMultiplier = 0.25
-            self.showSearchBar = true
-        } else if totalHeightMultiplier >= 0.75 {
-            constantMultiplier = 0.75
-        } else {
-            constantMultiplier = totalHeightMultiplier
-        }
+        configureTableView()
         
-        if self.showSearchBar {
-            tableViewToHeaderViewTopConstraint.constant = -40
-            searchContainerView.layer.cornerRadius = 20
-            searchContainerView.isHidden = false
-            searchTextField.addTarget(self, action: #selector(searchTextFieldTapped), for: .touchDown)
-            searchTextField.delegate = self
-        } else {
-            searchContainerView.isHidden = true
-            tableViewToHeaderViewTopConstraint.constant = -100
-        }
-
-        self.filterData = sections
+        prepareVisibleViewHeight()
+        
+        setupSearchbar()
+        
         self.emptyRowHandler = emptyRowHandler
         self.emptySearchRowTitle = emptySearchRowTitle
         self.dismisshandler = dismisshandler
         
-        blurView = insertBlurView(blurStyle: .dark, blurLevel: .low)
+        blurView = insertBlurView()
         blurView?.animate()
         
         headerContainerView.layer.cornerRadius = 20
@@ -141,6 +107,56 @@ open class SelectionView: BaseView {
         setFilterHeight(constantMultiplier)
         
         statusBarStyle = UIApplication.shared.statusBarStyle
+    }
+    
+    fileprivate func configureTableView() {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 35
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.sectionFooterHeight = UITableView.automaticDimension
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.separatorColor = UIColor.lightGray
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.reloadData()
+    }
+    
+    fileprivate func prepareVisibleViewHeight() {
+        var totalHeight: CGFloat = 160
+        for i in 0..<filterData.count {
+            filterData[i].index = i
+            totalHeight += CGFloat(filterData[i].options.count * 40)
+            if filterData[i].title != nil {
+                totalHeight += 40
+            }
+        }
+        
+        let totalHeightMultiplier = ((UIScreen.main.bounds.height - totalHeight) / UIScreen.main.bounds.height)
+        
+        if totalHeightMultiplier <= 0.25 {
+            constantMultiplier = 0.25
+            self.showSearchBar = true
+        } else if totalHeightMultiplier >= 0.75 {
+            constantMultiplier = 0.75
+        } else {
+            constantMultiplier = totalHeightMultiplier
+        }
+    }
+    
+    fileprivate func setupSearchbar() {
+        if self.showSearchBar {
+            tableViewToHeaderViewTopConstraint.constant = -40
+            searchContainerView.layer.cornerRadius = 20
+            searchContainerView.isHidden = false
+            searchTextField.addTarget(self, action: #selector(searchTextFieldTapped), for: .touchDown)
+            searchTextField.delegate = self
+        } else {
+            searchContainerView.isHidden = true
+            tableViewToHeaderViewTopConstraint.constant = -100
+        }
     }
     
     func setFilterHeight(_ constantMultiplier: CGFloat) {
@@ -231,12 +247,8 @@ extension SelectionView {
         let progress = CGFloat(downwardMovementPercent)
         
         if gesture.state == .changed, let _ = gesture.view {
-            //            if (view.frame.origin.y + translation.y) >= self.optionsViewYPosition {
             let value = (self.optionsViewYPosition + translation.y)
-            //                    self.headerView.frame.origin.y = value
-            //            let multiplierConstant:CGFloat = (value < 150 ? 150 : value) * 0.4
             self.filterViewTopConstraint.constant = value
-            //            }
         } else if gesture.state == .ended || gesture.state == .cancelled, let view = gesture.view {
             if (view.frame.origin.y + translation.y) > 250 || progress > percentThreshold {
                 self.dismissView()

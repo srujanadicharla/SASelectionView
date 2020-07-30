@@ -19,7 +19,6 @@ class SelectionViewCell: UITableViewCell {
         layoutMargins = UIEdgeInsets.zero
         preservesSuperviewLayoutMargins = false
         separatorInset = UIEdgeInsets.zero
-        selectionStyle = .none
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         

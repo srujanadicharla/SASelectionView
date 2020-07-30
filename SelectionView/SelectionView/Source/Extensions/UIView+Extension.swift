@@ -8,18 +8,11 @@
 
 import UIKit
 
-
-enum BackgroundBlurLevel: CGFloat {
-    case low = 0.24
-    case medium = 0.54
-    case high = 0.84
-}
-
 extension UIView {
-    func insertBlurView(blurStyle: UIBlurEffect.Style = .dark, blurLevel: BackgroundBlurLevel = .medium) -> UIView {
+    func insertBlurView() -> UIView {
         let view = UIView()
         view.alpha = 0
-        view.backgroundColor = blurStyle == .dark ? UIColor.black.withAlphaComponent(blurLevel.rawValue) : UIColor.white.withAlphaComponent(blurLevel.rawValue)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.54)
         view.frame = self.bounds
         self.insertSubview(view, at: 0)
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -55,16 +48,3 @@ extension UIView {
         layer.shadowRadius = 0
     }
 }
-
-extension Bundle {
-    class public func getBundle(classIs : AnyClass) -> Bundle{
-        return Bundle(for: classIs)
-    }
-    
-    open class var frameworkBundle: Bundle {
-        get {
-            return Bundle(identifier: "com.srujansimha.SelectionView") ?? Bundle.main
-        }
-    }
-}
-

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Montserrat-Regular.otf">
             <string>Montserrat-Regular</string>
-        </array>
-        <array key="Montserrat-SemiBold.otf">
-            <string>Montserrat-SemiBold</string>
         </array>
     </customFonts>
     <objects>
@@ -43,8 +40,8 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqN-WP-PIa">
                                     <rect key="frame" x="20" y="28" width="374" height="0.0"/>
-                                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeC-5R-kb8">
@@ -58,15 +55,15 @@
                                     <rect key="frame" x="20" y="44" width="374" height="40"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="a5N-Sl-c5S">
-                                            <rect key="frame" x="12" y="11" width="18" height="18"/>
+                                            <rect key="frame" x="12" y="14" width="12" height="12"/>
                                             <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="18" id="GSN-CN-mHA"/>
-                                                <constraint firstAttribute="height" constant="18" id="TF1-eo-mL4"/>
+                                                <constraint firstAttribute="width" constant="12" id="GSN-CN-mHA"/>
+                                                <constraint firstAttribute="height" constant="12" id="TF1-eo-mL4"/>
                                             </constraints>
                                         </imageView>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNd-Yn-WAD">
-                                            <rect key="frame" x="34" y="0.0" width="340" height="40"/>
+                                            <rect key="frame" x="30" y="0.0" width="344" height="40"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                         </textField>
@@ -76,7 +73,7 @@
                                         <constraint firstAttribute="trailing" secondItem="zNd-Yn-WAD" secondAttribute="trailing" id="8r8-dn-1PK"/>
                                         <constraint firstItem="a5N-Sl-c5S" firstAttribute="centerY" secondItem="tXn-3U-npS" secondAttribute="centerY" id="BlT-FA-Pt1"/>
                                         <constraint firstItem="a5N-Sl-c5S" firstAttribute="leading" secondItem="tXn-3U-npS" secondAttribute="leading" constant="12" id="NLP-IS-5QT"/>
-                                        <constraint firstItem="zNd-Yn-WAD" firstAttribute="leading" secondItem="a5N-Sl-c5S" secondAttribute="trailing" constant="4" id="gxh-qK-lis"/>
+                                        <constraint firstItem="zNd-Yn-WAD" firstAttribute="leading" secondItem="a5N-Sl-c5S" secondAttribute="trailing" constant="6" id="gxh-qK-lis"/>
                                         <constraint firstItem="zNd-Yn-WAD" firstAttribute="top" secondItem="tXn-3U-npS" secondAttribute="top" id="xst-b3-0uq"/>
                                         <constraint firstAttribute="height" constant="40" id="zFp-km-Hfg"/>
                                         <constraint firstAttribute="bottom" secondItem="zNd-Yn-WAD" secondAttribute="bottom" id="zi2-mJ-h8F"/>
@@ -87,7 +84,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="45" id="ddr-WJ-Dyy"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>

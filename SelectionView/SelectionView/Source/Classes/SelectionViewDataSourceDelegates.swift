@@ -34,9 +34,10 @@ extension SelectionView: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let title = isSearchActive ? (searchFilterData.count == 0 ? "" : searchFilterData[section].title) : filterData[section].title,
-            let sectionHeader: SingleSelectionSectionHeaderView = SingleSelectionSectionHeaderView.loadView() {
+        let title = isSearchActive ? (searchFilterData.count == 0 ? "" : searchFilterData[section].title) : filterData[section].title
+        if let sectionHeader: SingleSelectionSectionHeaderView = SingleSelectionSectionHeaderView.loadView() {
             sectionHeader.titleLabel.text = title
+            sectionHeader.titleLabel.font = .boldSystemFont(ofSize: 13)
             return sectionHeader
         }
         
@@ -54,6 +55,7 @@ extension SelectionView: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SelectionViewCell = tableView.dequeReusableCell(forIndexPath: indexPath)
         cell.selectionStyle = .default
+        cell.titleLabel.textColor = .darkText
         
         if isSearchActive {
             if searchFilterData.count == 0, let emptySearchRowTitle = self.emptySearchRowTitle {
@@ -62,12 +64,14 @@ extension SelectionView: UITableViewDelegate, UITableViewDataSource {
                 cell.titleLabel?.text = searchFilterData[indexPath.section].options[indexPath.row]
                 if searchFilterData[indexPath.section].disabledIndices[indexPath.section]?.contains(indexPath.row) == true {
                     cell.titleLabel.textColor = UIColor.lightGray.withAlphaComponent(0.54)
+                    cell.selectionStyle = .none
                 }
             }
         } else {
             cell.titleLabel?.text = filterData[indexPath.section].options[indexPath.row]
             if filterData[indexPath.section].disabledIndices[indexPath.section]?.contains(indexPath.row) == true {
                 cell.titleLabel.textColor = UIColor.lightGray.withAlphaComponent(0.54)
+                cell.selectionStyle = .none
             }
         }
         
@@ -77,7 +81,7 @@ extension SelectionView: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearchActive {
             if searchFilterData.count == 0, emptySearchRowTitle != nil {
-                selectedOption(indexPath.section, indexPath.row, searchTextField.text ?? "")
+                emptyRowHandler?(searchTextField.text ?? "")
             } else if searchFilterData.count != 0 {
                 let filteredSection = searchFilterData[indexPath.section]
                 
