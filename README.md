@@ -17,7 +17,7 @@ A lightweight single selection view that slides up from bottom of the screen.
 
 ## [](https://github.com/srujanadicharla/SASelectionView#requirements) Requirements
 
-SelectionView works on iOS 9 and higher. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
+SASelectionView works on iOS 9 and higher. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
 
 * Foundation
 * UIKit
@@ -25,12 +25,12 @@ SelectionView works on iOS 9 and higher. It depends on the following Apple frame
 ## [](https://github.com/srujanadicharla/SASelectionView#installation) Installation
 
 ### CocoaPods 
-You can use [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to install SelectionView by adding it to your Podfile:
+You can use [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to install SASelectionView by adding it to your Podfile:
 
 ```swift
 platform :ios, '9.0'
 use_frameworks!
-pod 'SelectionView'
+pod 'SASelectionView'
 ```
 
 #### Manually
@@ -41,7 +41,7 @@ pod 'SelectionView'
 ## [](https://github.com/srujanadicharla/SASelectionView#example) Example
 ```swift
 import UIKit
-import SelectionView
+import SASelectionView
 
 class ViewController: UIViewController {
 
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         sections.append(SectionItem(title: "New York", options: ["New York City", "Albany", "Buffalo"]))
         sections.append(SectionItem(title: "Florida", options: ["Miami", "Orlando", "Jacksonville", "Key West"], disabledIndices: [3:[1,3]]))
         
-        SelectionView.show(title: "Locations", sections: sections, showSearchBar: true, emptySearchRowTitle: "Item not found. Add this ...", emptyRowHandler: { (notFoundText) in
+        SASelectionView.show(title: "Locations", sections: sections, showSearchBar: true, emptySearchRowTitle: "Item not found. Add this ...", emptyRowHandler: { (notFoundText) in
             print("Not found result: \(notFoundText)")
             self.selectedOptionLabel.text = notFoundText
         }) { (section, row, value) in
