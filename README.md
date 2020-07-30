@@ -71,5 +71,8 @@ class ViewController: UIViewController {
 
 <img src="https://github.com/srujanadicharla/SASelectionView/blob/master/Images/screenshot1.png" width="300" height="649"><img src="https://github.com/srujanadicharla/SASelectionView/blob/master/Images/screenshot2.png" width="300" height="649">
 
+## [](https://github.com/srujanadicharla/SASelectionView#contribute) Contribute
+If you have feature requests or bug reports, please feel free to help out by sending pull requests or create issues.
+
 ## [](https://github.com/srujanadicharla/SASelectionView#license) License
 This code is distributed under the terms and conditions of the [MIT license](https://github.com/srujanadicharla/SelectionView/blob/master/LICENSE).
