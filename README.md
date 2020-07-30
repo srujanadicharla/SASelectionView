@@ -11,7 +11,7 @@ A lightweight single selection view that slides up from bottom of the screen.
 * Auto displying searchbar based on the number of items. (you can hide/show searbar manually too)
 * Gesture control to drag down to dismiss
 
-<img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/selection_view.gif" width="300" height="649">
+<img src="https://github.com/srujanadicharla/SASelectionView/blob/master/Images/selection_view.gif" width="300" height="649">
 
 *A list showing cities (rows) of respective states (sections)*
 
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 }
 ```
 
-<img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/screenshot1.png" width="300" height="649"><img src="https://github.com/srujanadicharla/SelectionView/blob/master/Images/screenshot2.png" width="300" height="649">
+<img src="https://github.com/srujanadicharla/SASelectionView/blob/master/Images/screenshot1.png" width="300" height="649"><img src="https://github.com/srujanadicharla/SASelectionView/blob/master/Images/screenshot2.png" width="300" height="649">
 
-### [](https://github.com/srujanadicharla/SASelectionView#license) License
+## [](https://github.com/srujanadicharla/SASelectionView#license) License
 This code is distributed under the terms and conditions of the [MIT license](https://github.com/srujanadicharla/SelectionView/blob/master/LICENSE).
