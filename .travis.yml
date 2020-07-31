@@ -1,7 +1,7 @@
-language: objective-c
+language:
+  - swift
 osx_image: xcode11.6
-
-
-  script:
+script:
+  # - xcodebuild -scheme SwiftExample -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test
   # Using `build` command for now since no tests are being run so we don't need to specify a device to test on in the build command
 - set -o pipefail && xcodebuild build -workspace SASelectionView/SASelectionView.xcworkspace -scheme SASelectionView-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
